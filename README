@@ -1,0 +1,53 @@
+curriculum-vitae - my CV in LaTeX
+=================================
+This repository contains my curriculum vitae, written in LaTeX. There
+is one source file per language: an English version (en_cv.tex) and a
+Romanian version (ro_cv.tex).
+
+
+Requirements
+------------
+In order to build the CV you need a TeX distribution with pdflatex
+(TeX Live is what I use). The sources use these packages: fullpage,
+titlesec, enumitem, hyperref, fancyhdr, tabularx, color and babel
+(with Romanian support for ro_cv.tex). A full TeX Live installation
+includes all of them; with a smaller one, install the missing
+packages with tlmgr.
+
+
+Building
+--------
+Run pdflatex on the file of the language you want:
+
+    pdflatex ro_cv.tex
+
+The resulting ro_cv.pdf and the auxiliary files are created in the
+same directory. The same works for en_cv.tex. latexmk can be used
+instead:
+
+    latexmk -pdf ro_cv.tex
+
+
+Editing
+-------
+Each file is split into a preamble, which defines the layout and a
+few custom commands, and the content, which starts after the "CV
+content" comment. Entries are written with these commands, for
+example \resumeSubheading for a job or project and \resumeItem for a
+bullet point.
+
+The small version tag in the footer of the page is set with
+\cvversion at the top of each file.
+
+
+Files
+-----
+    en_cv.tex   English version of the CV
+    ro_cv.tex   Romanian version of the CV
+    .gitignore  keeps build files out of Git
+
+
+Credits
+-------
+The layout is based on https://github.com/sb2nov/resume (MIT
+license).
